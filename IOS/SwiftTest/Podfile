@@ -1,0 +1,7 @@
+platform :ios, '9.0' #最低适配版本
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'SwiftTest' do
+    #pod 'AFNetworking', '3.2.1'
+end
