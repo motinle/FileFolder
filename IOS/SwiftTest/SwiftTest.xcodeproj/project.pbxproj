@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		422420FE2710937C00E3D69F /* TableViewControllerd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422420FD2710937B00E3D69F /* TableViewControllerd.swift */; };
+		42242100271096B500E3D69F /* STFlutterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422420FF271096B500E3D69F /* STFlutterViewController.swift */; };
 		42D959E027105BB600D89D8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D959DF27105BB600D89D8F /* AppDelegate.swift */; };
 		42D959E227105BB600D89D8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D959E127105BB600D89D8F /* SceneDelegate.swift */; };
-		42D959E427105BB600D89D8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D959E327105BB600D89D8F /* ViewController.swift */; };
+		42D959E427105BB600D89D8F /* STTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D959E327105BB600D89D8F /* STTableViewController.swift */; };
 		42D959E727105BB600D89D8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D959E527105BB600D89D8F /* Main.storyboard */; };
 		42D959E927105BB900D89D8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D959E827105BB900D89D8F /* Assets.xcassets */; };
 		42D959EC27105BB900D89D8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D959EA27105BB900D89D8F /* LaunchScreen.storyboard */; };
@@ -18,10 +20,12 @@
 
 /* Begin PBXFileReference section */
 		01B7064C9C2C187D6EE65B0F /* libPods-SwiftTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		422420FD2710937B00E3D69F /* TableViewControllerd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerd.swift; sourceTree = "<group>"; };
+		422420FF271096B500E3D69F /* STFlutterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STFlutterViewController.swift; sourceTree = "<group>"; };
 		42D959DC27105BB600D89D8F /* SwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D959DF27105BB600D89D8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42D959E127105BB600D89D8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		42D959E327105BB600D89D8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		42D959E327105BB600D89D8F /* STTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTableViewController.swift; sourceTree = "<group>"; };
 		42D959E627105BB600D89D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42D959E827105BB900D89D8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42D959EB27105BB900D89D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +52,6 @@
 				8027A660684D13CEC0803146 /* Pods-SwiftTest.debug.xcconfig */,
 				FCC195604F9ADE8FA2CEF3A3 /* Pods-SwiftTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -75,11 +78,13 @@
 			children = (
 				42D959DF27105BB600D89D8F /* AppDelegate.swift */,
 				42D959E127105BB600D89D8F /* SceneDelegate.swift */,
-				42D959E327105BB600D89D8F /* ViewController.swift */,
+				42D959E327105BB600D89D8F /* STTableViewController.swift */,
+				422420FF271096B500E3D69F /* STFlutterViewController.swift */,
 				42D959E527105BB600D89D8F /* Main.storyboard */,
 				42D959E827105BB900D89D8F /* Assets.xcassets */,
 				42D959EA27105BB900D89D8F /* LaunchScreen.storyboard */,
 				42D959ED27105BB900D89D8F /* Info.plist */,
+				422420FD2710937B00E3D69F /* TableViewControllerd.swift */,
 			);
 			path = SwiftTest;
 			sourceTree = "<group>";
@@ -188,7 +193,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42D959E427105BB600D89D8F /* ViewController.swift in Sources */,
+				42242100271096B500E3D69F /* STFlutterViewController.swift in Sources */,
+				422420FE2710937C00E3D69F /* TableViewControllerd.swift in Sources */,
+				42D959E427105BB600D89D8F /* STTableViewController.swift in Sources */,
 				42D959E027105BB600D89D8F /* AppDelegate.swift in Sources */,
 				42D959E227105BB600D89D8F /* SceneDelegate.swift in Sources */,
 			);
