@@ -5,7 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'SwiftTest' do
   
   if ENV['local']
-    pod 'FlutterSDKDebug', :path => '../../../Flutter/my_flutter'
+    pod 'FlutterSDKDebug', :path => '../../Flutter/my_flutter'
   else
     pod 'FlutterSDKDebug', '0.1.0'
   end
