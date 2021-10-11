@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Flutter
 class STTableViewController: UITableViewController {
     
     override func viewDidLoad() {
@@ -36,7 +36,10 @@ class STTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            self.performSegue(withIdentifier: "pushFlutter", sender: self)
+//            self.performSegue(withIdentifier: "pushFlutter", sender: self)
+            let flutterViewController = FlutterViewController.init(project: nil, nibName: nil, bundle: nil)
+            flutterViewController.setInitialRoute("myApp");
+            self.navigationController!.pushViewController(flutterViewController, animated: true)
         }
     }
 
