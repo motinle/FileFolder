@@ -5,11 +5,12 @@ platform :ios, '10.0' #最低适配版本
 
 target 'SwiftTest' do
   
-  if ENV['local']
+  if ENV['flutter_debug']
     pod 'FlutterSDKDebug', :path => '../../Flutter/my_flutter'
+  elsif ENV['flutter_release']
+    pod 'FlutterSDKRelease', :path => '../../Flutter/my_flutter'
   else
-    pod 'FlutterSDKDebug', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
-  end
-  
+    pod 'FlutterSDK', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
+    end
   pod 'AFNetworking', '3.2.1'
 end

@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'FlutterSDKDebug'
+  s.name             = 'FlutterSDKRelease'
   s.version          = '0.1.0'
   s.summary          = 'this is a very strong test demo'
   s.authors          = 'test'
@@ -25,10 +25,10 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/motinle/FlutterSDK.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.source           = { :git => 'https://github.com/motinle/FlutterSDK.git', :branch => 'master' }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+
 
   s.ios.deployment_target = '9.0'
 
 #  s.source_files = 'KGFlutter/Classes/**/*'
-   s.ios.vendored_frameworks = 'build/ios/Debug-iphonesimulator/*.framework'
+   s.ios.vendored_frameworks = 'build/ios/Release-iphoneos/*.framework'
 end
