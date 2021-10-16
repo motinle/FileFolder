@@ -8,11 +8,8 @@ Widget _widgetForRoute(String route) {
   switch (route) {
     case 'myApp':
       return new MyApp();
-
     default:
-      return Center(
-        child: Text('Unknown route: $route', textDirection: TextDirection.ltr),
-      );
+      return new MyApp();
   }
 }
 class MyApp extends StatelessWidget {
@@ -108,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ],
         ),
