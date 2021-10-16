@@ -1,15 +1,14 @@
-
-
-platform :ios, '9.0' #最低适配版本
-
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+
+platform :ios, '10.0' #最低适配版本
+
 
 target 'SwiftTest' do
   
   if ENV['local']
     pod 'FlutterSDKDebug', :path => '../../Flutter/my_flutter'
   else
-    pod 'FlutterSDKDebug', '0.1.0'
+    pod 'FlutterSDKDebug', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
   end
   
   pod 'AFNetworking', '3.2.1'
