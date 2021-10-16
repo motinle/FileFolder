@@ -13,6 +13,7 @@ class STTableViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.tableView.backgroundColor = UIColor.purple
+        self.title = "STTableViewController"
         
         
     }
