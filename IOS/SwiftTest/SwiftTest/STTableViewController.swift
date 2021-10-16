@@ -36,9 +36,7 @@ class STTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-//            self.performSegue(withIdentifier: "pushFlutter", sender: self)
-            let flutterViewController = FlutterViewController.init(project: nil, nibName: nil, bundle: nil)
-            flutterViewController.setInitialRoute("myApp");
+            let flutterViewController = FlutterViewController.init(project: nil, initialRoute: "myApp", nibName: nil, bundle: nil)
             self.navigationController!.pushViewController(flutterViewController, animated: true)
         }
     }
