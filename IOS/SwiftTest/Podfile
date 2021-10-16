@@ -1,15 +1,15 @@
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
-platform :ios, '10.0' #最低适配版本
+platform :ios, '10.0'
 
 
 target 'SwiftTest' do
   
-  if ENV['flutter_debug']
+  if ENV['flutter_debug']#本地flutter debug库
     pod 'FlutterSDKDebug', :path => '../../Flutter/my_flutter'
-  elsif ENV['flutter_release']
+  elsif ENV['flutter_release']#本地flutter release库
     pod 'FlutterSDKRelease', :path => '../../Flutter/my_flutter'
-  else
+  else #远程flutter release库（无需安装flutter环境）
     pod 'FlutterSDK', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
     end
   pod 'AFNetworking', '3.2.1'
