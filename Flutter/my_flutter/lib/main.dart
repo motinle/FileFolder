@@ -1,8 +1,18 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:my_flutter/ProfileChangeNotifier.dart';
+import 'package:provider/provider.dart';
 
 //void main() => runApp(MyApp());
-void main() => runApp(_widgetForRoute(ui.window.defaultRouteName));
+void main() {
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider<UserModel>.value(value: UserModel()),
+      ChangeNotifierProvider<UserModel2>.value(value: UserModel2()),
+    ],
+        child:_widgetForRoute(ui.window.defaultRouteName)),
+  );
+}
 
 Widget _widgetForRoute(String route) {
   switch (route) {
@@ -63,6 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+      final user = Provider.of<UserModel>(context,listen: false);
+      final user2 = Provider.of<UserModel2>(context,listen: false);
+      user2.increment();
+      user.increment();
+
     });
   }
 
@@ -75,15 +90,16 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
+      appBar: null,
+      // AppBar(
+      //   // Here we take the value from the MyHomePage object that was created by
+      //   // the App.build method, and use it to set our appbar title.
+      //   title: Text(widget.title),
+      // ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: (Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -100,21 +116,28 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'sb mes:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
+            Builder(builder: (context){
+              final user = Provider.of<UserModel>(context,);
+              return Text("总价: ${user.value}");
+            }),
+            Builder(builder: (context){
+              final user2 = Provider.of<UserModel2>(context,);
+              return Text("总价2: ${user2.value}");
+            }),
+            Builder(builder: (context){
+              return Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.bodyText1,
+              );
+            }),
+
           ],
-        ),
+        )),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      )); // This trailing comma makes auto-formatting nicer for build methods.
   }
 }

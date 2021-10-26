@@ -12,5 +12,5 @@ target 'SwiftTest' do
   else #远程flutter release库（无需安装flutter环境）
     pod 'FlutterSDK', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
     end
-  pod 'AFNetworking', '3.2.1'
+  #pod 'AFNetworking', '3.2.1'
 end
