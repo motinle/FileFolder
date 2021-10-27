@@ -1,5 +1,6 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:my_flutter/FileOperationRoute.dart';
 import 'package:my_flutter/ProfileChangeNotifier.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +19,7 @@ Widget _widgetForRoute(String route) {
   switch (route) {
     case 'myApp':
       return new MyApp();
+      break;
     default:
       return new MyApp();
   }
@@ -40,6 +42,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page2'),
+      // routes: <String, WidgetBuilder>{
+      //   "login": (context) => LoginRoute(),
+      //   "themes": (context) => ThemeChangeRoute(),
+      //   "language": (context) => LanguageRoute(),
+      // },
+      routes:<String, WidgetBuilder> {
+        'myApp':(context)=> MyApp(),
+        'fileOperation':(context)=>FileOperationRoute(),
+      },
     );
   }
 }
@@ -78,24 +89,21 @@ class _MyHomePageState extends State<MyHomePage> {
       user2.increment();
       user.increment();
 
+
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    _nextButtonAction() {
+      Navigator.of(context).pushNamed('fileOperation');
+    }
     return Scaffold(
-      appBar: null,
-      // AppBar(
-      //   // Here we take the value from the MyHomePage object that was created by
-      //   // the App.build method, and use it to set our appbar title.
-      //   title: Text(widget.title),
-      // ),
+      appBar:  AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -129,6 +137,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 '$_counter',
                 style: Theme.of(context).textTheme.bodyText1,
               );
+            }),
+            Builder(builder: (context){
+              return TextButton(
+                  onPressed: _nextButtonAction,
+                  child: Text('next'));
             }),
 
           ],
