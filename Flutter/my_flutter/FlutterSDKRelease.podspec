@@ -30,5 +30,5 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
 
 #  s.source_files = 'KGFlutter/Classes/**/*'
-   s.ios.vendored_frameworks = 'build/ios/Release-iphoneos/*.framework'
+   s.ios.vendored_frameworks = 'build/ios/Release-iphoneos/*.framework','build/ios/Release-iphoneos/*/*.framework'
 end

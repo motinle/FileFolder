@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:my_flutter/FileOperationRoute.dart';
 import 'package:my_flutter/ProfileChangeNotifier.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 //void main() => runApp(MyApp());
@@ -47,10 +48,10 @@ class MyApp extends StatelessWidget {
       //   "themes": (context) => ThemeChangeRoute(),
       //   "language": (context) => LanguageRoute(),
       // },
-      routes:<String, WidgetBuilder> {
-        'myApp':(context)=> MyApp(),
-        'fileOperation':(context)=>FileOperationRoute(),
-      },
+      // routes:<String, WidgetBuilder> {
+      //   'myApp':(context)=> MyApp(),
+      //   'fileOperation':(context)=>FileOperationRoute(),
+      // },
     );
   }
 }
@@ -76,7 +77,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _incrementCounter() async {
+    String dir = (await getApplicationDocumentsDirectory()).path;
+    print(dir);
+
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -96,7 +100,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     _nextButtonAction() {
-      Navigator.of(context).pushNamed('fileOperation');
+      // Navigator.of(context).pushNamed('fileOperation');
+      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext ctx) => FileOperationRoute()));
     }
     return Scaffold(
       appBar:  AppBar(
@@ -125,11 +130,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Builder(builder: (context){
-              final user = Provider.of<UserModel>(context,);
+              final user = Provider.of<UserModel>(context,listen:false);
               return Text("总价: ${user.value}");
             }),
             Builder(builder: (context){
-              final user2 = Provider.of<UserModel2>(context,);
+              final user2 = Provider.of<UserModel2>(context,listen:false);
               return Text("总价2: ${user2.value}");
             }),
             Builder(builder: (context){

@@ -7,6 +7,7 @@
 
 import UIKit
 import Flutter
+import FlutterPluginRegistrant
 class STTableViewController: UITableViewController {
     
     override func viewDidLoad() {
@@ -14,8 +15,6 @@ class STTableViewController: UITableViewController {
         // Do any additional setup after loading the view.
         self.tableView.backgroundColor = UIColor.purple
         self.title = "STTableViewController"
-        
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,10 +36,12 @@ class STTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
             let flutterViewController = FlutterViewController.init(project: nil, initialRoute: "myApp", nibName: nil, bundle: nil)
+            GeneratedPluginRegistrant.register(with: flutterViewController.pluginRegistry())
+//            flutterViewController.pluginRegistry().registrar(forPlugin: "FLTPathProviderPlugin")
             self.navigationController!.pushViewController(flutterViewController, animated: true)
         }
     }
-
 }
 
