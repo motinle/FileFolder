@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4205674127313E0300940098 /* One.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4205673C27313E0300940098 /* One.jpg */; };
+		4205674227313E0300940098 /* Four.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4205673D27313E0300940098 /* Four.jpg */; };
+		4205674327313E0300940098 /* Two.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4205673E27313E0300940098 /* Two.jpg */; };
+		4205674427313E0300940098 /* Three.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4205673F27313E0300940098 /* Three.jpg */; };
+		4205674527313E0300940098 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4205674027313E0300940098 /* 2.mp3 */; };
+		42056747273140DA00940098 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42056746273140DA00940098 /* DemoViewController.swift */; };
+		420567492731411D00940098 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420567482731411D00940098 /* Circle.swift */; };
 		422420FE2710937C00E3D69F /* TableViewControllerd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422420FD2710937B00E3D69F /* TableViewControllerd.swift */; };
 		42242100271096B500E3D69F /* STFlutterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422420FF271096B500E3D69F /* STFlutterViewController.swift */; };
 		42D959E027105BB600D89D8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D959DF27105BB600D89D8F /* AppDelegate.swift */; };
@@ -20,6 +27,13 @@
 
 /* Begin PBXFileReference section */
 		01B7064C9C2C187D6EE65B0F /* libPods-SwiftTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4205673C27313E0300940098 /* One.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = One.jpg; sourceTree = "<group>"; };
+		4205673D27313E0300940098 /* Four.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Four.jpg; sourceTree = "<group>"; };
+		4205673E27313E0300940098 /* Two.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Two.jpg; sourceTree = "<group>"; };
+		4205673F27313E0300940098 /* Three.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Three.jpg; sourceTree = "<group>"; };
+		4205674027313E0300940098 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		42056746273140DA00940098 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		420567482731411D00940098 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		422420FD2710937B00E3D69F /* TableViewControllerd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerd.swift; sourceTree = "<group>"; };
 		422420FF271096B500E3D69F /* STFlutterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STFlutterViewController.swift; sourceTree = "<group>"; };
 		42D959DC27105BB600D89D8F /* SwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,9 +69,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4205673B27313DF600940098 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4205674027313E0300940098 /* 2.mp3 */,
+				4205673D27313E0300940098 /* Four.jpg */,
+				4205673C27313E0300940098 /* One.jpg */,
+				4205673F27313E0300940098 /* Three.jpg */,
+				4205673E27313E0300940098 /* Two.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		42D959D327105BB600D89D8F = {
 			isa = PBXGroup;
 			children = (
+				4205673B27313DF600940098 /* Resources */,
 				42D959DE27105BB600D89D8F /* SwiftTest */,
 				42D959DD27105BB600D89D8F /* Products */,
 				1627001F9734F7D19DE4E85B /* Pods */,
@@ -76,10 +103,12 @@
 		42D959DE27105BB600D89D8F /* SwiftTest */ = {
 			isa = PBXGroup;
 			children = (
+				420567482731411D00940098 /* Circle.swift */,
 				42D959DF27105BB600D89D8F /* AppDelegate.swift */,
 				42D959E127105BB600D89D8F /* SceneDelegate.swift */,
 				42D959E327105BB600D89D8F /* STTableViewController.swift */,
 				422420FF271096B500E3D69F /* STFlutterViewController.swift */,
+				42056746273140DA00940098 /* DemoViewController.swift */,
 				42D959E527105BB600D89D8F /* Main.storyboard */,
 				42D959E827105BB900D89D8F /* Assets.xcassets */,
 				42D959EA27105BB900D89D8F /* LaunchScreen.storyboard */,
@@ -156,8 +185,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4205674327313E0300940098 /* Two.jpg in Resources */,
+				4205674127313E0300940098 /* One.jpg in Resources */,
 				42D959EC27105BB900D89D8F /* LaunchScreen.storyboard in Resources */,
+				4205674227313E0300940098 /* Four.jpg in Resources */,
 				42D959E927105BB900D89D8F /* Assets.xcassets in Resources */,
+				4205674527313E0300940098 /* 2.mp3 in Resources */,
+				4205674427313E0300940098 /* Three.jpg in Resources */,
 				42D959E727105BB600D89D8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420567492731411D00940098 /* Circle.swift in Sources */,
+				42056747273140DA00940098 /* DemoViewController.swift in Sources */,
 				42242100271096B500E3D69F /* STFlutterViewController.swift in Sources */,
 				422420FE2710937C00E3D69F /* TableViewControllerd.swift in Sources */,
 				42D959E427105BB600D89D8F /* STTableViewController.swift in Sources */,
