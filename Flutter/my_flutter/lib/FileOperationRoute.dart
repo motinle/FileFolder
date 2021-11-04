@@ -4,6 +4,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:my_flutter/global.dart';
 import 'package:path_provider/path_provider.dart';
 
 class FileOperationRoute extends StatefulWidget {
@@ -52,15 +54,40 @@ class _FileOperationRouteState extends State<FileOperationRoute> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('文件操作')),
-      body: Center(
-        child: Text('点击了 $_counter 次'),
+    return Theme(
+      data: Global.myThemeData(context),
+      child: Scaffold(
+        appBar: AppBar(
+            title: Text('文件操作'),
+
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              Text('点击了 $_counter 次'),
+              SizedBox(
+                height: 120,
+              ),
+              Text('点击了 $_counter 次'),
+            ],
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+          ),
+        ),
+
+
+
+
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          child: Icon(Icons.add),
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        child: Icon(Icons.add),
-      ),
+
     );
+
+
+
+
   }
 }

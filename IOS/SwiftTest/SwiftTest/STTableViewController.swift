@@ -12,8 +12,7 @@ class STTableViewController: UITableViewController {
     var cellTitles:NSArray? = nil;
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.cellTitles = ["基本","flutter"];
-        // Do any additional setup after loading the view.
+        self.cellTitles = ["基本","flutter","url_launcher"];
         self.tableView.backgroundColor = UIColor.purple
         self.title = "STTableViewController"
     }
@@ -46,9 +45,38 @@ class STTableViewController: UITableViewController {
             self.navigationController?.setNavigationBarHidden(true, animated: false)
             let flutterViewController = FlutterViewController.init(project: nil, initialRoute: "myApp", nibName: nil, bundle: nil)
             GeneratedPluginRegistrant.register(with: flutterViewController.pluginRegistry())
+            self.setupChanel(binaryMessenger: flutterViewController as! FlutterBinaryMessenger)
+            self.navigationController!.pushViewController(flutterViewController, animated: true)
+        }
+        else if indexPath.row == 2 {
+            self.navigationController?.setNavigationBarHidden(true, animated: false)
+            let flutterViewController = FlutterViewController.init(project: nil, initialRoute: "url", nibName: nil, bundle: nil)
+            GeneratedPluginRegistrant.register(with: flutterViewController.pluginRegistry())
+//            flutterViewController.pluginRegistry().registrar(forPlugin: "FLTPathProviderPlugin")
+            self.setupChanel(binaryMessenger: flutterViewController as! FlutterBinaryMessenger)
 //            flutterViewController.pluginRegistry().registrar(forPlugin: "FLTPathProviderPlugin")
             self.navigationController!.pushViewController(flutterViewController, animated: true)
         }
     }
+//     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool)
+    
+    func setupChanel(binaryMessenger: FlutterBinaryMessenger) {
+        let channelName = "com.pages.your/native_get"
+        let messageChannel = FlutterMethodChannel.init(name: channelName, binaryMessenger: binaryMessenger)
+        messageChannel.setMethodCallHandler {(call: FlutterMethodCall, result: FlutterResult) -> Void in
+            if (call.method == "back") {
+                self.navigationController?.setNavigationBarHidden(false, animated: false)
+//                let arguments = call.arguments
+                self.navigationController!.popViewController(animated: true)
+            }
+            else if (call.method == "getParamFromIOS") {
+                let dic = NSDictionary.init(object: "哈", forKey: "key" as NSCopying )
+                result(dic);
+            }
+        }
+    }
+    
 }
+
+
 

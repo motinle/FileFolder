@@ -1,5 +1,8 @@
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:my_flutter/ProfileChangeNotifier.dart';
+import 'package:my_flutter/UrlLauncherRoute.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'FileOperationRoute.dart';
@@ -15,22 +18,27 @@ void main() {
         ChangeNotifierProvider<UserModel>.value(value: UserModel()),
         ChangeNotifierProvider<UserModel2>.value(value: UserModel2()),
       ],
-          // child:_widgetForRoute(ui.window.defaultRouteName)),
-          child: MyApp()),
+          child:_widgetForRoute(ui.window.defaultRouteName),
+          // child: MyApp()
+      ),
     );
   });
 }
 
-// void main() {
-//   runApp(
-//     MultiProvider(providers: [
-//       ChangeNotifierProvider<UserModel>.value(value: UserModel()),
-//       ChangeNotifierProvider<UserModel2>.value(value: UserModel2()),
-//     ],
-//         // child:_widgetForRoute(ui.window.defaultRouteName)),
-//         child: MyApp()),
-//   );
-// }
+Widget _widgetForRoute(String route) {
+  switch (route) {
+    case 'myApp':
+      return new MyApp();
+    case 'url':
+      return new UrlLauncherRoute2();
+
+    default:
+      return new UrlLauncherRoute2();
+      // return Center(
+      //   child: Text('Unknown route: $route', textDirection: TextDirection.ltr),
+      // );
+  }
+}
 
 
 
@@ -50,6 +58,7 @@ class MyApp extends StatelessWidget {
         // "hot reload" (press "r" in the console where you ran "flutter run",
         // or press Run > Flutter Hot Reload in a Flutter IDE). Notice that the
         // counter didn't reset back to zero; the application is not restarted.
+
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page2'),
@@ -74,6 +83,8 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
+
 
 class _MyHomePageState extends State<MyHomePage> {
 
@@ -101,16 +112,31 @@ class _MyHomePageState extends State<MyHomePage> {
       // Navigator.of(context).pushNamed('fileOperation');
       Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext ctx) => FileOperationRoute()));
     }
+    _getParamFromIOS() async {
+      dynamic result;
+      try {
+        const methodChannel = const MethodChannel('com.pages.your/native_get');
+        result = await methodChannel.invokeMethod('getParamFromIOS');
+        print(result);
+      } on PlatformException {
+        result = "error";
+      }
+    }
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: Global.myThemeData(context),
       home: Scaffold(
           appBar:  AppBar(
             // Here we take the value from the MyHomePage object that was created by
             // the App.build method, and use it to set our appbar title.
             title: Text(widget.title),
+            leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () async {
+              print("invokeMethod");
+              const methodChannel = const MethodChannel('com.pages.your/native_get');
+              Map<String, dynamic> map = {"code": "200", "data":[1,2,3]};
+              await methodChannel.invokeMethod('back', map);
+              print("invokeMethod2");
+            },),
           ),
           body: Center(
             // Center is a la            // in the middle of the parent.yout widget. It takes a single child and positions it
@@ -146,10 +172,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 }),
                 Builder(builder: (context){
-                  return TextButton(
+                  return IconButton(
                       onPressed: _nextButtonAction,
-                      child: Text('next'));
+                      icon: Icon(Icons.add_alarm),
+                  );
                 }),
+                TextButton(onPressed: _getParamFromIOS, child: Text("getParamFromIOS")),
 
               ],
             )),

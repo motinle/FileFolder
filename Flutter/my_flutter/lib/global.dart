@@ -1,4 +1,5 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -6,6 +7,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Global {
   static int count;
+
+  static  ThemeData myThemeData(BuildContext context) {
+    return new ThemeData(
+      primarySwatch: Colors.red,
+      //去掉水波纹
+      brightness: Theme .of(context) .brightness,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+    );
+  }
+
+
   static SharedPreferences prefs;
   //初始化全局信息
   static Future init() async {
