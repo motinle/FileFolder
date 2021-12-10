@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'FlutterSDKRelease'
+  s.name             = 'flutter_iphone'
   s.version          = '0.1.0'
   s.summary          = 'this is a very strong test demo'
   s.authors          = 'test'

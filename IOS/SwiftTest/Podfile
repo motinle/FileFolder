@@ -1,16 +1,28 @@
+#flutter_iphone=1 pod update --no-repo-update
+
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 platform :ios, '10.0'
 
+$isArchive = false
+$isFlutterDevelop = true
+
 
 target 'SwiftTest' do
-  
-  if ENV['flutter_debug']#本地flutter debug库
-    pod 'FlutterSDKDebug', :path => '../../Flutter/my_flutter'
-  elsif ENV['flutter_release']#本地flutter release库
-    pod 'FlutterSDKRelease', :path => '../../Flutter/my_flutter'
-  else #远程flutter release库（无需安装flutter环境）
-    pod 'FlutterSDK', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
-    end
   #pod 'AFNetworking', '3.2.1'
+  
+  if $isArchive == true#打正式包
+    pod 'FlutterSDK', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
+  else
+    if $isFlutterDevelop == true
+      if ENV['flutter_iphone']#本地真机库
+        pod 'flutter_iphone', :path => '../../Flutter/my_flutter'
+      else#本地摸拟器库
+        pod 'flutter_simulator', :path => '../../Flutter/my_flutter'
+      end
+    end
+  end
+  
+  
 end
+
