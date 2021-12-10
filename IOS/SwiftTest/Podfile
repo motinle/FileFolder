@@ -4,22 +4,19 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 platform :ios, '10.0'
 
-$isArchive = false
-$isFlutterDevelop = true
+$isArchive = false #是否打包
 
 
 target 'SwiftTest' do
   #pod 'AFNetworking', '3.2.1'
   
-  if $isArchive == true#打正式包
-    pod 'FlutterSDK', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
+  if $isArchive == true#发版正式包(AndroidStudio-flutter-"build ios")
+    pod 'flutter_archive', :git => 'https://github.com/motinle/FlutterSDK.git', :branch=>'master'
   else
-    if $isFlutterDevelop == true
-      if ENV['flutter_iphone']#本地真机库
-        pod 'flutter_iphone', :path => '../../Flutter/my_flutter'
-      else#本地摸拟器库
-        pod 'flutter_simulator', :path => '../../Flutter/my_flutter'
-      end
+    if ENV['flutter_iphone']#本地真机库(AndroidStudio-真机运行一下)
+      pod 'flutter_iphone', :path => '../../Flutter/my_flutter'
+    else#本地模拟器库(AndroidStudio-模拟器运行一下)
+      pod 'flutter_simulator', :path => '../../Flutter/my_flutter'
     end
   end
   
