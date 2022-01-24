@@ -12,7 +12,7 @@ class STTableViewController: UITableViewController {
     var cellTitles:NSArray? = nil;
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.cellTitles = ["基本","flutter","url_launcher"];
+        self.cellTitles = ["基本","uni-app","flutter","url_launcher"];
         self.tableView.backgroundColor = UIColor.purple
         self.title = "STTableViewController"
     }
@@ -38,17 +38,24 @@ class STTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        let cell:UITableViewCell? = tableView.cellForRow(at: indexPath)!
+        let text:String? = cell?.textLabel?.text!
+        if (text == "基本") {
             self.performSegue(withIdentifier: "pushDemo", sender: nil)
         }
-        else if indexPath.row == 1 {
+        else if (text=="uni-app") {
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+            let uni = UniAppViewController.init(nibName: nil, bundle: nil)
+            self.navigationController!.pushViewController(uni, animated: false)
+        }
+        else if (text=="flutter") {
             self.navigationController?.setNavigationBarHidden(true, animated: false)
             let flutterViewController = FlutterViewController.init(project: nil, initialRoute: "myApp", nibName: nil, bundle: nil)
             GeneratedPluginRegistrant.register(with: flutterViewController.pluginRegistry())
             self.setupChanel(binaryMessenger: flutterViewController as! FlutterBinaryMessenger)
             self.navigationController!.pushViewController(flutterViewController, animated: true)
         }
-        else if indexPath.row == 2 {
+        else if (text=="url_launcher") {
             self.navigationController?.setNavigationBarHidden(true, animated: false)
             let flutterViewController = FlutterViewController.init(project: nil, initialRoute: "url", nibName: nil, bundle: nil)
             GeneratedPluginRegistrant.register(with: flutterViewController.pluginRegistry())
